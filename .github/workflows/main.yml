@@ -32,7 +32,7 @@ jobs:
       run: node playright.js
       env:
           CI: true
-          GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
-          GITHUB_PASSWORD: ${{ secrets.GITHUB_PASSWORD }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
           title: ${{ github.event.inputs.title }}
     
