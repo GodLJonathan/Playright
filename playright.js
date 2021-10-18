@@ -14,7 +14,7 @@ const download = async (url) => {
         await page.goto(`${url}`);
         await page.waitForTimeout(2000);
         console.log("Forking the repo : ", url)
-        await page.click('//html/body/div[4]/div/main/div[1]/div[1]/ul/li[3]/form/button')
+        await page.click('text=Fork')
         await page.waitForTimeout(3000);
         console.log('Repo is Forked');
         browser.close();
