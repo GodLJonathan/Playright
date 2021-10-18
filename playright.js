@@ -11,7 +11,8 @@ const download = async (url) => {
         await page.fill('#login_field', process.env.EMAIL);
         await page.fill('#password', process.env.PASSWORD);
         await page.click('#login > div.auth-form-body.mt-3 > form > div.position-relative > input.btn.btn-primary.btn-block.js-sign-in-button');
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(10000);
+        await page.screenshot({ path : 'screenshot1.png'})
         await page.goto(`${url}`);
         console.log("Forking the repo : ", url)
         await page.click('text=Fork')
