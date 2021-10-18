@@ -1,10 +1,10 @@
-const { chromium } = require('playwright');
+const { firefox } = require('playwright');
 
 require('dotenv').config();
 
 const download = async (url) => {
     try {
-        const browser = await chromium.launch();
+        const browser = await firefox.launch();
         const page = await browser.newPage();
         await page.goto('https://github.com');
         await page.click('text=Sign in');
