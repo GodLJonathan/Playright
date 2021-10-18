@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const download = async (url) => {
     try {
-        const browser = await firefox.launch();
+        const browser = await firefox.launch({headless:true});
         const page = await browser.newPage();
         await page.goto('https://github.com');
         await page.click('text=Sign in');
@@ -16,6 +16,7 @@ const download = async (url) => {
         console.log("Forking the repo : ", url)
         await page.click('text=Fork')
         await page.waitForTimeout(3000);
+        await page.screenshot({ path: 'screenshot.png' });
         console.log('Repo is Forked');
         browser.close();
         process.exit();
@@ -27,4 +28,4 @@ const download = async (url) => {
     }
 }
 
-download(process.env.title);
+download("https://github.com/metagrover/ES6-for-humans");
