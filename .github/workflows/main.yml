@@ -1,4 +1,4 @@
-name: Playright
+name: Hurray
 
 on:
   workflow_dispatch:
@@ -29,10 +29,9 @@ jobs:
       run: npm install
       
     - name: Getting Started
-      run: node playright.js
+      run: node makeRequest.js
       env:
           CI: true
-          EMAIL: ${{ secrets.EMAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          title: ${{ github.event.inputs.title }}
+          OAUTH: ${{ secrets.OAUTH }}
+          githubUrl: ${{ github.event.inputs.title }}
     
