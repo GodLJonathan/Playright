@@ -1,7 +1,18 @@
 const axios = require('axios');
+
 require('dotenv').config();
 
-(async () => {
+function changeUrl(githubUrl) { 
+    githubUrl = githubUrl.replace('github.com','api.github.com/repos');
+    
+    if(githubUrl[githubUrl.length-1] === '/') githubUrl += 'forks'
+    else githubUrl += '/forks'
+
+    return githubUrl;
+
+}
+
+const addRepo = async () => {
     try {
         
         let githubUrl = process.env.githubUrl;
@@ -15,17 +26,9 @@ require('dotenv').config();
         console.log("Repository successfully created");
     }
     catch(err) {
-        console.error(err);
+        console.error("Unable to create repository");
     }
 
-})();
-
-function changeUrl(githubUrl) { 
-    githubUrl = githubUrl.replace('github.com','api.github.com/repos');
-    
-    if(githubUrl[githubUrl.length-1] === '/') githubUrl += 'forks'
-    else githubUrl += '/forks'
-
-    return githubUrl;
-
 }
+
+addRepo();
