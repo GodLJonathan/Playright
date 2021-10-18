@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const download = async (url) => {
     try {
-        const browser = await chromium.launch({headless:false});
+        const browser = await chromium.launch();
         const page = await browser.newPage();
         await page.goto('https://github.com');
         await page.click('text=Sign in');
