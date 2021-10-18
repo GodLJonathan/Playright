@@ -1,13 +1,13 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const addRepo = async () => {
+(async () => {
     try {
         
         let githubUrl = process.env.githubUrl;
         githubUrl = changeUrl(githubUrl)
         
-        await axios.post(githubUrl,{},{
+        const response = await axios.post(githubUrl,{},{
             headers: {
                 "Authorization": "token " + process.env.OAUTH
             }
@@ -18,7 +18,7 @@ const addRepo = async () => {
         console.error(err);
     }
 
-}
+})();
 
 function changeUrl(githubUrl) { 
     githubUrl = githubUrl.replace('github.com','api.github.com/repos');
