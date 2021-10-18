@@ -8,8 +8,8 @@ const download = async (url) => {
         const page = await browser.newPage();
         await page.goto('https://github.com');
         await page.click('text=Sign in');
-        await page.fill('#login_field', process.env.GITHUB_EMAIL);
-        await page.fill('#password', process.env.GITHUB_PASSWORD);
+        await page.fill('#login_field', process.env.EMAIL);
+        await page.fill('#password', process.env.PASSWORD);
         await page.click('#login > div.auth-form-body.mt-3 > form > div.position-relative > input.btn.btn-primary.btn-block.js-sign-in-button');
         await page.goto(url);
         console.log("Forking the repo : ", url)
